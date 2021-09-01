@@ -1,6 +1,7 @@
 // @packages
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 
+// @scripts
 import { LobbyScreen } from "./screens";
 
 export const QuestionsRouter = () => {
