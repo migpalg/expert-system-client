@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - 8080:80
+  api:
+    image: expert-system-api:alpine-0.1.0
+    ports:
+      - 8003:8003

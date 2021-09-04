@@ -1,14 +1,15 @@
 // @packages
 import { lazy } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 // @lazyroutes
-const QuestionsRouter = lazy(() => import('../features/questions/router'));
+const QuestionsRouter = lazy(() => import("../features/questions/router"));
 
 export const RootRouter = () => {
-    return (
-        <Switch>
-            <Route path="/questions" component={QuestionsRouter} />
-        </Switch>
-    );
-}
+  return (
+    <Switch>
+      <Route path="/questions" component={QuestionsRouter} />
+      <Redirect to="/questions" />
+    </Switch>
+  );
+};
