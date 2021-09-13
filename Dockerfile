@@ -12,7 +12,7 @@ RUN yarn run build
 FROM nginx:stable-alpine AS production
 
 COPY etc/nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /var/www
 
 WORKDIR /app
 
