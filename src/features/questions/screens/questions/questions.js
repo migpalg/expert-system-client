@@ -1,15 +1,7 @@
 // @packages
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Card,
-  CardContent,
-  Container,
-  Grid,
-  Typography,
-} from "@material-ui/core";
-import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
+import { AnswersCard, NavigationControls } from "../../components";
+import { answersTypes } from "../../components/answers-card/answers-card";
+import { Box, Container, Grid, Typography } from "@material-ui/core";
 
 // @scripts
 import { useStyles } from "./questions.styles";
@@ -20,8 +12,11 @@ import { useStyles } from "./questions.styles";
 export const QuestionsScreen = () => {
   const classes = useStyles();
 
+  const handleQuestionBack = () => console.log("back!");
+  const handleQuestionForward = () => console.log("forward!");
+
   return (
-    <Container className={classes.wrapper} maxWidth="md">
+    <Container className={classes.wrapper} maxWidth="sm">
       <Box
         paddingTop={5}
         height="100%"
@@ -42,34 +37,17 @@ export const QuestionsScreen = () => {
         </Grid>
         <Box flex={1} position="relative">
           <Box position="absolute" top={15} left={0} bottom={15} right={0}>
-            <Card style={{ maxHeight: "100%", overflowY: "auto" }}>
-              <CardContent>
-                <Box marginBottom={1}>
-                  <Typography variant="caption">Select an answer</Typography>
-                </Box>
-                <Grid spacing={2} container>
-                  {Array.from(new Array(2)).map((_, index) => (
-                    <Grid key={`ans-${index}`} xs={12} md={6} item>
-                      <Button variant="outlined" fullWidth>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.
-                      </Button>
-                    </Grid>
-                  ))}
-                </Grid>
-              </CardContent>
-            </Card>
+            <AnswersCard type={answersTypes.unique} options={["A", "B"]} />
           </Box>
         </Box>
         <Box marginBottom={2}>
-          <ButtonGroup fullWidth>
-            <Button disabled>
-              <ArrowBackIos />
-            </Button>
-            <Button disabled>
-              <ArrowForwardIos />
-            </Button>
-          </ButtonGroup>
+          <NavigationControls
+            backDisabled={false}
+            forwardDisabled={false}
+            fullWidth
+            onBackClick={handleQuestionBack}
+            onForwardClick={handleQuestionForward}
+          />
         </Box>
       </Box>
     </Container>
