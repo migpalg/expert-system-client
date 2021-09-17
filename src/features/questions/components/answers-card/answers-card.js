@@ -27,7 +27,7 @@ export const AnswersCard = ({ type, options }) => {
           <Typography variant="caption">Select an answer</Typography>
         </Box>
         <Grid spacing={2} container>
-          {options.map((text, index) => (
+          {options.map(({ text, value }, index) => (
             <Grid key={`ans-${index}`} xs={12} md={6} item>
               <Button variant="outlined" fullWidth>
                 {text}
@@ -42,7 +42,12 @@ export const AnswersCard = ({ type, options }) => {
 
 AnswersCard.propTypes = {
   type: propTypes.oneOf(Object.values(answersTypes)),
-  options: propTypes.arrayOf(propTypes.string).isRequired,
+  options: propTypes.arrayOf(
+    propTypes.shape({
+      value: propTypes.string.isRequired,
+      text: propTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 AnswersCard.defaultProps = {
