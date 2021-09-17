@@ -5,12 +5,12 @@ import { MemoryRouter } from "react-router-dom";
 // @scripts
 import { App } from "./app";
 
-describe('App unit testing', () => {
-    it('should render correctly', () => {
-        render(
-            <MemoryRouter>
-                <App />
-            </MemoryRouter>
-        )
-    })
-})
+describe("App unit testing", () => {
+  it("should render correctly", () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+  });
+});

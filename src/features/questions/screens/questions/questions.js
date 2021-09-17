@@ -1,9 +1,10 @@
 // @packages
-import { AnswersCard, NavigationControls } from "../../components";
-import { answersTypes } from "../../components/answers-card/answers-card";
 import { Box, Container, Grid, Typography } from "@material-ui/core";
 
 // @scripts
+import { AnswersCard, NavigationControls } from "../../components";
+import { answersTypes } from "../../components/answers-card/answers-card";
+import { usePager } from "../../hooks/use-pager/use-pager";
 import { useStyles } from "./questions.styles";
 
 /**
@@ -11,9 +12,21 @@ import { useStyles } from "./questions.styles";
  */
 export const QuestionsScreen = () => {
   const classes = useStyles();
+  const { currentPage, previousPage, nextPage } = usePager({ max: 20 });
 
-  const handleQuestionBack = () => console.log("back!");
-  const handleQuestionForward = () => console.log("forward!");
+  /**
+   * Handles behaviour when users click back button
+   */
+  const handleQuestionBack = () => {
+    previousPage();
+  };
+
+  /**
+   * Handles behaviour when users click forward button
+   */
+  const handleQuestionForward = () => {
+    nextPage();
+  };
 
   return (
     <Container className={classes.wrapper} maxWidth="sm">
@@ -26,7 +39,7 @@ export const QuestionsScreen = () => {
       >
         <Grid direction="column" spacing={2} container>
           <Grid item>
-            <Typography variant="h3">1/20</Typography>
+            <Typography variant="h3">{currentPage}/20</Typography>
           </Grid>
           <Grid item>
             <Typography>

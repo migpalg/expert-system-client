@@ -2,20 +2,20 @@ import { createTheme } from "@material-ui/core";
 
 export const theme = createTheme({
   palette: {
-    type: 'dark'
+    type: "dark",
   },
   typography: {
     fontFamily: [
-      'Source Sans Pro',
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "Source Sans Pro",
+      "-apple-system",
+      "BlinkMacSystemFont",
       '"Segoe UI"',
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
+      "Arial",
+      "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
-    ].join(','),
-  }
-})
+    ].join(","),
+  },
+});
